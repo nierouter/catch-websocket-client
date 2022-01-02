@@ -29,7 +29,7 @@ module CatchWebSocket
       cert_store = OpenSSL::X509::Store.new
       cert_store.set_default_paths
       ctx.cert_store = cert_store
-      @socket = ::OpenSSL::SSL::SSLSocket.new(TCPSocket.new(@uri.host, @uri.port), ctx)
+      @socket = ::OpenSSL::SSL::SSLSocket.new(TCPSocket.new(@uri.host, @uri.port || 443), ctx)
       @socket.connect
       write_and_receive(@handshake = ::WebSocket::Handshake::Client.new(url: url))
       @frame = ::WebSocket::Frame::Incoming::Client.new
