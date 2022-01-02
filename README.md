@@ -1,12 +1,11 @@
 catch-websocket-client
 ======================
-This is a library for interactive WebSocket communication like HTTP.
-Once you send a request, it will keep waiting for a response.
+This client sends a request and waits for a response, just like HTTP communication.
 
 
 Usage
 -----
-## Case. 1
+### Case. 1
 ```ruby
 require 'catch-websocket-client'
 
@@ -15,8 +14,8 @@ cws = CatchWebSocket::Client.new 'wss://example.com'
 response = cws.request({
   command: :auth,
   params: {
-    id: 'username',
-    pw: 'password'
+    user: 'username',
+    pass: 'password'
   }
 })
 
@@ -26,7 +25,7 @@ puts JSON.pretty_generate(result)
 ```
 
 
-## Case. 2
+### Case. 2
 ```ruby
 require 'catch-websocket-client'
 
@@ -52,6 +51,6 @@ puts JSON.pretty_generate(result)
 
 ## Copyright
 
-Copyright c 2022 @neirouter
+Copyright c 2022 neirouter.com
 LICENSE: MIT License
 
